@@ -16,4 +16,4 @@ def add_contact_menu():
 
     c["name"] = name
     c["number"] = number
-    return
+    return c
