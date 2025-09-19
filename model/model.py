@@ -19,3 +19,13 @@ def delete(n:str):
 
     contacts.remove(c)
     return c
+
+def update(n: str, new_data: dict):
+    c = search(n)
+    if c is None:
+        return None 
+    c.update(new_data)
+    return c
+
+def get_all():
+    return contacts
