@@ -19,7 +19,8 @@ def eliminar_contacts(nombre):
 def actualizar_contacts(nombre, telefono=None, email=None):
     nuevos_datos = {}
     if telefono:
-        nuevos_datos["phone"] = telefono 
+        new_data["phone"] = telefono 
     if email:
-        nuevos_datos["email"] = email
+        new_data["email"] = email
     return model.update(nombre, nuevos_datos)
+
