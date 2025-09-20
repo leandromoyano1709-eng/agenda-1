@@ -8,19 +8,37 @@ def agregar_contacts(nombre, telefono, email):
     })
 
 def lista_contacts():
-   return model.get_all()
+   return model.contacts()
 
 def buscar_contacts(nombre):
    return model.search(nombre)
 
 def eliminar_contacts(nombre):
-   return model,delete(nombre)
+   return model.delete(nombre)
 
-def actualizar_contacts(nombre, telefono=None, email=None):
-    nuevos_datos = {}
-    if telefono:
-        new_data["phone"] = telefono 
-    if email:
-        new_data["email"] = email
-    return model.update(nombre, nuevos_datos)
+def ejecutar_opcion(opcion):
+    if opcion == "1":
+        c = add_contact_menu()
+        agregar_contact(c["name"], c["number"],"")
+
+        print("contacto agregado!")
+    elif opcion == "2":
+        contactos = lista_contacts()
+        if not contactos:
+            print("no hay contactos")
+        else:
+            for c in contactos:
+                print(f"{c['name']} - {c['number']}")
+    elif opcion == "3":
+        print("funcion editar en contruccion...")
+    elif opcion == "4":
+        nombre = input("ingrese el nombre a eliminar: ")
+        eliminado = eliminar_contacts(nombre)
+        if eliminado:
+            print("contacto eliminado")
+        else:
+            print("no se encontro ese contacto.")
+    else:
+        print("opcion no valida")
+
 
