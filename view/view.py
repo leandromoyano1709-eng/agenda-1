@@ -15,5 +15,6 @@ def add_contact_menu():
     phone = input("tel : ")
 
     c["name"] = name
-    c["phone"] = number
+    c["phone"] = phone
+    c["email"] = email
     return c
