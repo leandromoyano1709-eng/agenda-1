@@ -3,8 +3,8 @@ from view.vista import add_contact_menu
 
 def agregar_contacts(nombre, telefono, email=""):
     return modelo.insert({
-        "name": nombre
-        "phone": telefono
+        "name": nombre,
+        "phone": telefono,
         "email": email
     })
 
@@ -20,7 +20,7 @@ def eliminar_contacts(nombre):
 def ejecutar_opcion(opcion):
     if opcion == "1":
         c = add_contact_menu()
-        agregar_contact(c["name"], c["phone"])
+        agregar_contacts(c["name"], c["phone"])
 
         print("contacto agregado!")
     elif opcion == "2":
@@ -41,6 +41,7 @@ def ejecutar_opcion(opcion):
             print("no se encontro ese contacto.")
     else:
         print("opcion no valida")
+
 
 
 
