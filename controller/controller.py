@@ -1,6 +1,7 @@
-import model
+from model import modelo
+from view.vista import add_contact_menu
 
-def agregar_contacts(nombre, telefono, email):
+def agregar_contacts(nombre, telefono, email=""):
     return modelo.insert({
         "name": nombre
         "phone": telefono,
@@ -8,18 +9,18 @@ def agregar_contacts(nombre, telefono, email):
     })
 
 def lista_contacts():
-   return model.contacts()
+   return modelo.get_all()
 
 def buscar_contacts(nombre):
-   return model.search(nombre)
+   return modelo.search(nombre)
 
 def eliminar_contacts(nombre):
-   return model.delete(nombre)
+   return modelo.delete(nombre)
 
 def ejecutar_opcion(opcion):
     if opcion == "1":
         c = add_contact_menu()
-        agregar_contact(c["name"], c["number"],"")
+        agregar_contact(c["name"], c["phone"])
 
         print("contacto agregado!")
     elif opcion == "2":
@@ -28,7 +29,7 @@ def ejecutar_opcion(opcion):
             print("no hay contactos")
         else:
             for c in contactos:
-                print(f"{c['name']} - {c['number']}")
+                print(f"{c['name']} - {c['phone']}")
     elif opcion == "3":
         print("funcion editar en contruccion...")
     elif opcion == "4":
@@ -40,5 +41,6 @@ def ejecutar_opcion(opcion):
             print("no se encontro ese contacto.")
     else:
         print("opcion no valida")
+
 
 
