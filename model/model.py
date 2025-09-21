@@ -7,7 +7,7 @@ def search(n:str):
 
     return None
 
-def insert(c):
+def insert(c: Dict):
     if search(c["name"]) is not None: return None
     
     contacts.append(c)
