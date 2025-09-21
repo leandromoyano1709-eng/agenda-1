@@ -13,7 +13,7 @@ def add_contact_menu():
 
     name = input("nombre : ")
     phone = input("tel : ")
-
+    email = input("email (opcional) : ")
     c["name"] = name
     c["phone"] = phone
     c["email"] = email
