@@ -1,5 +1,5 @@
 from model import model as modelo
-from view.vista import add_contact_menu
+from view import view as vista
 
 def agregar_contacts(nombre, telefono, email=""):
     return modelo.insert({
@@ -19,7 +19,7 @@ def eliminar_contacts(nombre):
 
 def ejecutar_opcion(opcion):
     if opcion == "1":
-        c = add_contact_menu()
+        c = vista.add_contact_menu()
         agregar_contacts(c["name"], c["phone"])
 
         print("contacto agregado!")
@@ -41,6 +41,16 @@ def ejecutar_opcion(opcion):
             print("no se encontro ese contacto.")
     else:
         print("opcion no valida")
+
+def main_loop():
+    while True:
+        opcion = vista.main_menu()
+        if opcion == "5":
+            print("¡gracias por usar la agenda!")
+            break 
+        ejecutar_opcion(opcion)
+
+
 
 
 
