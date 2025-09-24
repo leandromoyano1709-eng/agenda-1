@@ -1,13 +1,7 @@
-from controller.controlador import ejecutar_opcion
-from view.vista import main_menu
+from controller.controller import main_loop
 
 def main():
-    while True:
-        opcion = main_menu()
-        if opcion == "5":
-            print("¡gracias por usar la agenda!")
-            break 
-        ejecutar_opcion(opcion)
+    main_loop()
 
 if __name__ == "__main__":
       main()
