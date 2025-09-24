@@ -2,7 +2,7 @@ contacts = []
 
 def search(n:str):
     for c in contacts:
-        if c["name"]==n:
+        if c["name"].lower()==n.lower():
             return c
 
     return None
@@ -25,6 +25,11 @@ def update(n: str, new_data: dict):
     if c is None:
         return None 
     c.update(new_data)
+    return c
+
+def get_all():
+    return contacts
+
     return c
 
 def get_all():
