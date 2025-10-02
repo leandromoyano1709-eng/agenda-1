@@ -8,13 +8,13 @@ def main_menu():
 
     return input("seleccione una opción")
 
-def add_contact_menu():
+def add_contact_menu(campos:dict):
     c = {}
+    for key,value in campos.items():
+        c[key] = input(key+" : ")
 
-    name = input("nombre : ")
-    phone = input("tel : ")
-    email = input("email (opcional) : ")
-    c["name"] = name
-    c["phone"] = phone
-    c["email"] = email
     return c
+
+def list_contacts(l):
+    for i in l:
+        print(i)

@@ -1,30 +1,26 @@
 from model import model as modelo
 from view import view as vista
 
-def agregar_contacts(nombre, telefono, email=""):
-    return modelo.insert({
-        "name": nombre,
-        "phone": telefono,
-        "email": email
-    })
+def agregar_contacto(c):
+    return modelo.insert(c)
 
-def lista_contacts():
+def lista_contacto():
    return modelo.get_all()
 
-def buscar_contacts(nombre):
+def buscar_contacto(nombre):
    return modelo.search(nombre)
 
-def eliminar_contacts(nombre):
+def eliminar_contacto(nombre):
    return modelo.delete(nombre)
 
 def ejecutar_opcion(opcion):
     if opcion == "1":
-        c = vista.add_contact_menu()
-        agregar_contacts(c["name"], c["phone"])
+        c = vista.add_contact_menu(modelo.campos)
+        agregar_contacto(c)
 
         print("contacto agregado!")
     elif opcion == "2":
-        contactos = lista_contacts()
+        contactos = lista_contacto()
         if not contactos:
             print("no hay contactos")
         else:
@@ -34,7 +30,7 @@ def ejecutar_opcion(opcion):
         print("funcion editar en contruccion...")
     elif opcion == "4":
         nombre = input("ingrese el nombre a eliminar: ")
-        eliminado = eliminar_contacts(nombre)
+        eliminado = eliminar_contacto(nombre)
         if eliminado:
             print("contacto eliminado")
         else:

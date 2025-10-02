@@ -1,14 +1,16 @@
 contacts = []
+contact_id = "nombre"
+campos = {contact_id:None,"tel":None,"dirección":None}
 
 def search(n:str):
     for c in contacts:
-        if c["name"].lower()==n.lower():
+        if c[contact_id].lower()==n.lower():
             return c
 
     return None
 
 def insert(c: dict):
-    if search(c["name"]) is not None: return None
+    if search(c[contact_id]) is not None: return None
     
     contacts.append(c)
     return c
