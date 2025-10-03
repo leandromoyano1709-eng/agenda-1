@@ -31,8 +31,3 @@ def update(n: str, new_data: dict):
 
 def get_all():
     return contacts
-
-    return c
-
-def get_all():
-    return contacts

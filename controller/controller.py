@@ -21,11 +21,7 @@ def ejecutar_opcion(opcion):
         print("contacto agregado!")
     elif opcion == "2":
         contactos = lista_contacto()
-        if not contactos:
-            print("no hay contactos")
-        else:
-            for c in contactos:
-                print(f"{c['name']} - {c['phone']}")
+        vista.list_contacts(contactos)
     elif opcion == "3":
         print("funcion editar en contruccion...")
     elif opcion == "4":
